@@ -1,0 +1,17 @@
+{
+	"name": "ls_on_premise",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "C:\\ADF_project",
+			"userId": "adminuser",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIxMDAyMWE2OC0yNmM4LTRmNjAtOWFiOS00YTM1ZDhjOTQ0YTIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "sel-hosted",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

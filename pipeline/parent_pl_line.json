@@ -1,0 +1,94 @@
+{
+	"name": "parent_pl_line",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute on_prem_ingestion",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_on_prem_ingestion",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"files": {
+							"value": "@pipeline().parameters.files",
+							"type": "Expression"
+						}
+					}
+				}
+			},
+			{
+				"name": "Execute Api_ingestion",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Execute on_prem_ingestion",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_Api_ingestion",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Execute Sqltodatalake",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Execute Api_ingestion",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_sql_to_datalake",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"parameters": {
+			"files": {
+				"type": "array",
+				"defaultValue": [
+					{
+						"file_name": "DimPassenger.CSV"
+					},
+					{
+						"file_name": "DimAirline.CSV"
+					},
+					{
+						"file_name": "DimFlight.CSV"
+					}
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-12-24T17:34:49Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

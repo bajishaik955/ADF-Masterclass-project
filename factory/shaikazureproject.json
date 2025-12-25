@@ -1,0 +1,9 @@
+{
+	"name": "shaikazureproject",
+	"location": "westus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5c080b51-484a-414b-b5fe-233cad4a972c",
+		"tenantId": "00060ade-fa19-4944-9225-da062d976573"
+	}
+}
