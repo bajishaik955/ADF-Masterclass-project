@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "shaikazureproject"
+		},
+		"ls_azuresql_password": {
+			"value": ""
+		},
+		"ls_datalake_accountKey": {
+			"value": ""
+		},
+		"ls_on_premise_password": {
+			"value": ""
+		},
+		"ls_azuresql_properties_typeProperties_server": {
+			"value": "azureprojectgi.database.windows.net"
+		},
+		"ls_azuresql_properties_typeProperties_database": {
+			"value": "azureprojectdb"
+		},
+		"ls_azuresql_properties_typeProperties_userName": {
+			"value": "adminuser"
+		},
+		"ls_datalake_properties_typeProperties_url": {
+			"value": "https://azureprojectonpremise.dfs.core.windows.net/"
+		},
+		"ls_github_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"ls_on_premise_properties_typeProperties_host": {
+			"value": "C:\\ADF_project"
+		},
+		"ls_on_premise_properties_typeProperties_userId": {
+			"value": "adminuser"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
